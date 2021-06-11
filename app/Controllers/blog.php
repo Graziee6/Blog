@@ -9,8 +9,7 @@ public function index(){
     $blogArray=$model->getRecords();
     $data['blogs']=$blogArray;
     echo View("blogs/list.php",$data);   
-    // $this->load->view("blogs/list.php");
-}
+    }
 public function create(){
     $session=\Config\Services::session();
     helper('form');
