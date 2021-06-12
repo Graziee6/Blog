@@ -18,7 +18,7 @@
           <form action="/login/auth" method="POST">
             <div class="mb-3">
               <label for="InputForEmail" class="form-label">Email</label>
-              <input type="email" name="email" class="form-control" id="InputForEmail" value="<?= set_value('email')?>">
+              <input type="email" name="email" class="form-control" id="InputForEmail" value="<?= set_value('email')?>" required>
             </div>
             <div class="mb-3">
               <label for="InputForPassword" class="form-label">Password</label>
@@ -26,6 +26,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
+          <a href="http://localhost/Password/">forgot password</a>
         </div>
       </div>
   </div>

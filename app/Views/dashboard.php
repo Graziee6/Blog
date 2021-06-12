@@ -26,11 +26,15 @@
           <a class="nav-link" href="#">community</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="#">settings</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">help</a>
         </li>
       </ul>
     </div>
   </div>
+  <div><a href="/Login/logout">logout</a></div>
 </nav>
   <!-- Popper.js first, then Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

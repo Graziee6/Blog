@@ -4,8 +4,12 @@ use CodeIgniter\Controller;
 class Dashboard extends Controller{
     public function index(){
         $session = session();
-        // echo "Welcome back, ".$session->get('user_name');
         echo view('dashboard');
+    }
+    public function account(){
+        echo view('settings');
+    }
+    public function accountSettings(){
     }
 }
 ?>

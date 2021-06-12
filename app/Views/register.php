@@ -19,15 +19,15 @@
             <form action="/register/save" method="POST">
                 <div class="mb-3">
                     <label for="InputForName" class="form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="InputForName" value="<?= set_value('name') ?>">
+                    <input type="text" name="name" class="form-control" id="InputForName" value="<?= set_value('name') ?>" required>
                 </div>
                 <div class="mb-3">
                     <label for="InputForEmail" class="form-label">Email address</label>
-                    <input type="email" name="email" class="form-control" id="InputForEmail" value="<?= set_value('email') ?>">
+                    <input type="email" name="email" class="form-control" id="InputForEmail" value="<?= set_value('email') ?>" required>
                 </div>
                 <div class="mb-3">
                     <label for="InputForPassword" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="InputForPassword">
+                    <input type="password" name="password" class="form-control" id="InputForPassword" required>
                 </div>
                 <div class="mb-3">
                     <label for="InputForConfPassword" class="form-label">Confirm Password</label>
@@ -35,6 +35,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
+            <p>Have an account? <a href="http://localhost/Login">login</a></p>
         </div>
         </div>
     </div>
