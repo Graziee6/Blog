@@ -219,7 +219,11 @@
 
 	<div class="heroe">
 
+<<<<<<< HEAD
 		<h1>Sarah! Welcome to CodeIgniter <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
+=======
+		<h1>Welcome to CodeIgniter <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
+>>>>>>> 0070a9aad347cc41475344c5f4998f638ce71103
 
 		<h2>The small framework with powerful features</h2>
 

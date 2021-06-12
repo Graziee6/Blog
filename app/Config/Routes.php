@@ -34,6 +34,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/dashboard', 'Dashboard::index', ['filter'=>'auth']);
 $routes->get('/', 'Home::index');
+$routes->get('/', 'Blog::index');
+$routes->get('/blogs', 'Blog::index');
+$routes->get('/blogs/create', 'Blog::create');
+$routes->post('/blogs/create', 'Blog::create');
+$routes->get('/blogs/edit/(:num)', 'Blog::edit/$1');
+$routes->post('/blogs/edit/(:num)', 'Blog::edit/$1');
+$routes->get('/blogs/delete/(:num)', 'Blog::delete/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
