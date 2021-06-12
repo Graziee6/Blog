@@ -1,11 +1,16 @@
 <?php
 namespace App\Controllers;
 use App\Models\BlogModel;
+use App\Models\WriterModel;
+
 class Blog extends BaseController{
 public function index(){
     $session=\Config\Services::session();
     $data['session']=$session;
-    $model=new BlogModel();
+     $model=new BlogModel();
+    $m=new WriterModel();
+    $b=$m->getUsers();
+    $data['users']=$b;
     $blogArray=$model->getRecords();
     $data['blogs']=$blogArray;
     echo View("blogs/list.php",$data);   
@@ -22,12 +27,13 @@ public function create(){
         ]);
     if($input==true){
        $model=new BlogModel();
-    //    $model=$model->where('writerId','1');
        $model->insert([
-            'blogTitle'=>$this->request->getPost('blogTitle'),
+        'writerId'=>$this->request->getPost('writerId'),    
+        'blogTitle'=>$this->request->getPost('blogTitle'),
             'blogDescription'=>$this->request->getPost('blogDescription'),
             'blogContent'=>$this->request->getPost('blogContent')
-                    ]);
+                    
+            ]);
         $session->setFlashdata('success','data added successfully');
         return redirect()->to('blogs');
     }
@@ -42,6 +48,8 @@ return View('blogs/create',$data);
              $session=\Config\Services::session();
              helper('form');
              $model=new BlogModel();
+             $na=$session->get('blogId');
+
              $blog=$model->getRow($blogId);
              if(empty($blog)){
                 $session->setFlashdata('error','Data not around');
@@ -86,5 +94,5 @@ $data['blog']=$blog;
            return redirect()->to('/blogs');
         
     }
-}
+ }
 ?>

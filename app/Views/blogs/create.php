@@ -39,10 +39,10 @@
     </div>
     <div class="card-body">
 <div class="form-group">
-<form name="createForm" id="createForm"  method="post">
-<!-- <div>
-<input placeholder="writerID" value="" type="text" name="writer" class="form-control">
-</div> -->
+<form name="createForm" id="createForm" method="post">
+<div>
+<input placeholder="writerId" type="text" name="writerId" class="form-control">
+</div>
 <label for="">blogTitle</label>
 <input type="text" placeholder="blogTitle" name="blogTitle" id="name" class="form-control" <?php echo (isset($validation) && $validation->hasError('blogTitle'))?'is-invalid':''?>>
 <?php 
