@@ -7,7 +7,13 @@ class Register extends Controller{
         //include helper form
         helper(['form']);
         $data = [];
-        echo view('register', $data);
+        echo view('user_account/register', $data);
+    }
+    public function updateAccount(){
+        echo view("user_account/updateAccount");
+    }
+    public function update(){
+
     }
     public function save(){
         //include helper form
@@ -16,6 +22,8 @@ class Register extends Controller{
         $rules = [
             'name'          => 'required|min_length[3]|max_length[20]',
             'email'         => 'required|min_length[6]|max_length[50]|valid_email|is_unique[users.user_email]',
+            'district'     => 'required',
+            'sector'       => 'required',
             'password'      => 'required|min_length[6]|max_length[200]',
             'confpassword'  => 'matches[password]'
         ];
@@ -25,7 +33,9 @@ class Register extends Controller{
             $data = [
                 'user_name' => $this->request->getVar('name'),
                 'user_email' => $this->request->getVar('email'),
-                'user_password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)    
+                'user_password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+                'districtId' => $this->request->getVar('district'),
+                'sectorId' => $this->request->getVar('sector'),
             ];
             $model->save($data);
             return redirect()->to('/login');

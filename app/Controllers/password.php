@@ -11,15 +11,15 @@ class Password extends BaseController
 {
 	public function index()
 	{
-		return view('password');
+		return view('user_account/password');
 	}
 
     public function displayCode(){
-        return view('code');
+        return view('user_account/code');
     }
 
     public function displayChangePassword(){
-        return view('changePassword');
+        return view('user_account/changePassword');
     }
 
     public function changePassword(){

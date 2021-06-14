@@ -10,9 +10,10 @@
 </head>
 <body>
     <div class="container-fluid bg-purple shadow-sm">
-    <div class="container pb-2 pt-2">
-    <div class="text-white h4">Medium</div>
-    </div>
+        <div class="container pb-2 pt-2 d-flex justify-content-between">
+            <div class="text-white h4">Medium</div>
+            <a class="btn btn-primary" href="/Login/logout">logout</a>
+        </div>
     </div>
     <div class="bg-white shadow-sm">
     <div class="container">

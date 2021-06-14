@@ -61,7 +61,7 @@ if(isset($validation) && $validation->hasError('blogDescription')){
 </div>
 <div class="form-group">
 <label for="">Content</label>
-<input type="text" placeholder="Content" name="blogContent" id="content" class="form-control">
+<textarea name="blogContent" id="content" class="form-control" placeholder="Content" cols="30" rows="10"></textarea>
 </div>
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>

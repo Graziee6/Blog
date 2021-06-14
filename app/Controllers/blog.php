@@ -10,6 +10,12 @@ public function index(){
     $data['blogs']=$blogArray;
     echo View("blogs/list.php",$data);   
     }
+    public function readMore(){
+        $session = session();
+        $id = $session->getFlashdata('blogId');
+        $session->setFlashdata('blogId', $id);
+        return view('/blogs/read-more');
+    }
 public function create(){
     $session=\Config\Services::session();
     helper('form');
@@ -21,13 +27,15 @@ public function create(){
             'blogDescription'=>'required|min_length[5]'
         ]);
     if($input==true){
+        $session = session();
        $model=new BlogModel();
     //    $model=$model->where('writerId','1');
        $model->insert([
             'blogTitle'=>$this->request->getPost('blogTitle'),
             'blogDescription'=>$this->request->getPost('blogDescription'),
-            'blogContent'=>$this->request->getPost('blogContent')
-                    ]);
+            'blogContent'=>$this->request->getPost('blogContent'),
+            'writerId'=> $session->user_id
+        ]);
         $session->setFlashdata('success','data added successfully');
         return redirect()->to('blogs');
     }
@@ -85,6 +93,15 @@ $data['blog']=$blog;
             $session->setFlashdata('success','Data deleted well');
            return redirect()->to('/blogs');
         
+    }
+
+    public function generatePDF(){
+        $dompdf = new \Dompdf\Dompdf();
+        $dompdf->loadHtml(view('/blogs/read-more'));
+        $dompdf->setPaper('A4','portrait');
+        $dompdf->render();
+        $dompdf->stream();
+        return redirect()->to(base_url('Blog/readmore'));
     }
 }
 ?>

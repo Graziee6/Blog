@@ -5,7 +5,7 @@ use App\Models\userModel;
 class Login extends Controller{
     public function index(){
         helper(['form']);
-        echo view('login');
+        echo view('user_account/login');
     }
     public function auth(){
         $session = session();
@@ -21,6 +21,8 @@ class Login extends Controller{
                     'user_id' => $data['userId'],
                     'user_name' => $data['user_name'],
                     'user_email' => $data['user_email'],
+                    'user_district' => $data['districtId'],
+                    'user_sector' => $data['sectorId'],
                     'logged_in' => TRUE
                 ];
                 $session->set($ses_data);
