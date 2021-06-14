@@ -42,7 +42,7 @@ $(document).ready(function(){
         <a class="nav-link text-light" href="#">blogs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="/register">account</a>
+        <a class="nav-link text-light" href="/register/updateAccount">account</a>
       </li>
     </ul>
   </div>
