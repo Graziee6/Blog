@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css');?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
-    <title>Medium</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
+<link rel="stylesheet" href="./assets/css/style.css">
+<!-- <link rel="stylesheet" href="./assets/css/bootstrap.css"> -->
+<title>Medium</title>
 </head>
 <body>
+    <script>
+        $(document).ready(function() {
+    $('#example').DataTable();
+} );
+    </script>
     <div class="container-fluid bg-purple shadow-sm">
-        <div class="container pb-2 pt-2 d-flex justify-content-between">
-            <div class="text-white h4">Medium</div>
-            <a class="btn btn-primary" href="/Login/logout">logout</a>
-        </div>
+    <div class="container pb-2 pt-2">
+    <div class="text-white h4">Medium</div>
+    </div>
     </div>
     <div class="bg-white shadow-sm">
     <div class="container">
@@ -24,10 +33,10 @@
     </div>
     </div>
     </div>
-    <div class="container">
+    <div class="container .ctr">
     <div class="row">
 <!--  -->
-    <div class="col-md-12 mt-4 text-right">
+    <div class="col-md-12 mt-4 text-end">
     <a href="<?php echo base_url("blogs/create");?>" class="btn btn-primary">Add</a>
     </div>
     </div>
@@ -38,7 +47,7 @@
    <!-- <####> -->
    <?php 
 if(!empty($session->getFlashdata('success'))){
-    ?>
+?>
     <div class="alert alert-success">
     <?php echo $session->getFlashdata('success');?>
     </div>
@@ -53,24 +62,27 @@ if(!empty($session->getFlashdata('error'))){
 <?php
 }?>
 </div>
+
     <div class="col-md-12">
     <div class="card">
-    <div class="card-header bg-purple text-white">
-    <div class="card-header-title">blogs</div>
+    <div class="bg-purple text-white">
+    <div class="card-header card-header-title">blogs</div>
     </div>
-    <div class="card-body">
-    <table class="table table-striped">
-    <tr>
-
+    <div class="card">
+    <table id="example" class="table table-striped">
+    <thead>
+        <tr>
     <th>Title</th>
     <th>Description</th>
     <th>Content</th>
     <th width="150">ACTION</th>
     </tr>
+</thead>
     <?php
     if(!empty($blogs)){
         foreach($blogs as $blog){
     ?>
+    <tbody?>
     <tr>
 
     <td><?php echo $blog['blogTitle']?></td>
@@ -87,6 +99,7 @@ if(!empty($session->getFlashdata('error'))){
     <tr>
     <td colspan="5">Record not found</td>
     </tr>
+    </tbody>
     <?php }?>
     </table>
     </div>

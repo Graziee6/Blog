@@ -9,6 +9,7 @@ public function index(){
     $blogArray=$model->getRecords();
     $data['blogs']=$blogArray;
     echo View("blogs/list.php",$data);   
+            // echo view('dashboard/index',$data);
     }
     public function readMore(){
         $session = session();
