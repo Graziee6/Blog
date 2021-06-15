@@ -41,7 +41,13 @@
             </div>
         <a href="/Blog/generatePDF" class="btn btn-primary w-25">Download</a>
         </div>
-            <textarea name="comment" id="comment" cols="30" rows="10" class="w-75"></textarea>
+        <form class="w-75 d-flex flex-column" action="/Comments/create/" method="POST">
+            <?php if(isset($validation)):?>
+                    <div class="alert alert-danger"><?=$validation->listErrors()?></div>
+                <?php endif;?>
+            <textarea name="comment" id="comment" cols="30" placeholder="Add comment...." rows="5" class="w-100 p-2"></textarea>
+            <button class="btn mt-2 bg-purple w-25 text-white">comment</button>
+        </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>

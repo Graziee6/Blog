@@ -13,28 +13,25 @@
         }
 
         public function create(){
-            $session=\Config\Services::session();
-            helper('form');
-            $data=[];
-            $data['session']=$session;
-            if($this->request->getMethod()=='post'){
-                $input=>$this->validate([
-                    'commentBody'=>'required'
-                ]);
-                if($input==true){
-                    $model=new commentsModel();
-                    $model->insert([
-                        'commentBody'=>$this->request->getPost('commentBody')
-                    ]);
-                    $session->setFlashdata('Created successfully')
-                    return redirect()->to('comments');
+              //include helper form
+        helper(['form']);
+        //set rules validation form 
+        $rules = [
+            'commentBody'=> 'required|min_length[3]|max_length[20]',
+        ];
+
+        if($this->validate($rules)){
+            $data = [
+                'commentBody' => $this->request->getVar('commentBody'),
+            ];
+            $comment = new commentsModel();
+            $comment->save($data);
+            return redirect()->to('/Blog/readMore');
                 }
                 else{
                     $data['validation']=$this->validator;
                 }
             }
-            return View('Comments/createComment', $data);
-        }
 
         public function edit($commentId){
             $session=\Config\Services::session();

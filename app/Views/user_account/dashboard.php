@@ -39,7 +39,7 @@ $(document).ready(function(){
         <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#">blogs</a>
+        <a class="nav-link text-light" href="/Blog">blogs</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-light" href="/register/updateAccount">account</a>
