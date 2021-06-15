@@ -40,7 +40,7 @@
             $comment=$model->getRow($commentId);
             if(empty($comment)){
                 $session->setFlashdata('error', 'Comment not found');
-                return redirect()->to('Comments');
+                return redirect()->to('/blog');
             }
             $data=[];
             $data['comment']=$comment;
@@ -69,9 +69,12 @@
             $comment=$model->getRow($commentId);
             if(empty($comment)){
                 $session->setFlashdata('error', 'Comment not found');
-                return redirect()->to('/Comments');
+                return redirect()->to('/blogs');
             }
-
+            $model = new CommentsModel();
+            $model->delete($commentId);
+            $session->setFlashdata('success','Comment deleted successfully');
+            return redirect()->to('/blogs');
         }
     }
 
