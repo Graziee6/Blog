@@ -48,8 +48,7 @@ $(document).ready(function(){
   </div>
   <a class="btn btn-primary" href="/Login/logout">logout</a>
 </nav>
-<div class="container-fluid">
-
+<div class="container-fluid d-flex justify-content-evenly mt-2">
 <?php
 use App\Models\BlogModel;
 $model=new BlogModel();
@@ -64,11 +63,7 @@ if(!empty($data['blogs'])){
     <h5 class="card-title"> <?=$blog['blogTitle']?> </h5>
     <h6 class="card-subtitle mb-2 text-muted"> <?=$blog['blogDescription']?> </h6>
     <p class="card-text show-read-more"> <?=$blog['blogContent']?> </p>
-    <?php
-      $session = session();
-      $session->setFlashdata('blogId', $blogId);
-    ?>
-    <a href="Blog/readMore/"class="read-more">read more...</a>
+    <a href="Blog/readMore/<?=$blogId?>"class="read-more">read more...</a>
   </div>
 </div>
 

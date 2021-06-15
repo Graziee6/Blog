@@ -83,7 +83,7 @@
                     sectors[i].style.display = 'none'
             }
             for (let i = 0; i < sectors.length; i++) {
-                if(sectors[i].className.includes(id)){
+                if( [i].className.includes(id)){
                     sectors[i].style.display='block'
                 }
             }

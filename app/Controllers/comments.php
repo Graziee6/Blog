@@ -3,35 +3,30 @@
     use App\Models\commentsModel;
     
     class Comments extends BaseController{
-        public function index(){
-            $session=\Config\Services::session();
-            $data['session']=$session;
-            $model=new commentsModel();
-            $commentsArray=$model->getRecords();
-            $data['comments']=$commentsArray;
-            echo View("Comments/createComment.php", $data);
-        }
-
-        public function create(){
+        public function create($id){
               //include helper form
-        helper(['form']);
-        //set rules validation form 
-        $rules = [
-            'commentBody'=> 'required|min_length[3]|max_length[20]',
-        ];
-
-        if($this->validate($rules)){
-            $data = [
-                'commentBody' => $this->request->getVar('commentBody'),
+            helper(['form']);
+            //set rules validation form 
+            $rules = [
+                'comment'=> 'required|min_length[3]|max_length[20]'
             ];
-            $comment = new commentsModel();
-            $comment->save($data);
-            return redirect()->to('/Blog/readMore');
-                }
-                else{
-                    $data['validation']=$this->validator;
-                }
+        
+            if($this->validate($rules)){
+                $session = session();
+                $data = [
+                    'commenterId' => $session->user_id,
+                    'blogId' => $id,
+                    'commentBody' => $this->request->getVar('comment'),
+                ];
+                $comment = new commentsModel();
+                $comment->save($data);
+                return redirect()->to('/Blog/readMore/'.$id);
             }
+            else{
+                $data['validation']=$this->validator;
+                return redirect()->to('/Blog/readMore/'.$id)->back()->withInput();
+            }
+        }
 
         public function edit($commentId){
             $session=\Config\Services::session();
