@@ -11,10 +11,16 @@ class Password extends BaseController
 {
 	public function index()
 	{
+        if(session()->user_id){
+            return redirect()->to('user_account/dashboard');
+        }
 		return view('user_account/password');
 	}
 
     public function displayCode(){
+        if(session()->user_id){
+            return redirect()->to('user_account/dashboard');
+        }
         return view('user_account/code');
     }
 
@@ -23,6 +29,9 @@ class Password extends BaseController
     }
 
     public function changePassword(){
+        if(empty(session()->user_email)){
+            return redirect()->to('user_account/login');
+        }
         $session = session();
         $to = $this->request->getVar('email');
         $model = new UserModel();
@@ -40,7 +49,7 @@ class Password extends BaseController
             if($email->send()){
                 // session()->setFlashdata('email', $to);
                 $session->code = $code;
-                $session->email = $email;
+                $session->user_email = $to;
                 return redirect()->to('/Password/displayCode');;
             } 
             else{
@@ -77,9 +86,10 @@ class Password extends BaseController
         ];
         if($this->validate($rules)){
             $db = \config\Database::connect();
-            $user = new UserModel();            
-            $email = session()->email;
-            
+            $user = new UserModel();   
+            $session = session();         
+            $email = $session->user_email;
+            print_r($email);
             $user->where('user_email', $email)->first();
             $id = $user->userId;
             $data = [

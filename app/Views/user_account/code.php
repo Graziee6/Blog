@@ -11,7 +11,7 @@
     ?>
 </head>
 <body>
-    <h1>enter the code sent to <?=$session->email?></h1>
+    <h1>enter the code sent to your email</h1>
     <?php 
         if (session()->getFlashdata('msg')) :
     ?>

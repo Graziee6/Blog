@@ -47,16 +47,16 @@
                     </div>
                     <div class="mb-3">
                         <label for="InputForEmail" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="InputForEmail" value="<?=$session->user_email?>" required>
+                        <input type="email" name="email" class="form-control" id="InputForEmail" readonly value="<?=$session->user_email?>" required>
                     </div>
                     <div class="mb-3 form-group">
                         <h4 class="p-2">Location</h4>
-                        <select  onchange="getSectors(event)" class="form-select" aria-label="select district" >
+                        <select  onchange="getSectors(event)" class="form-select" name="district" aria-label="select district" >
                             <?php
                                 $db = db_connect();
                                 $distId = $session->user_district;
                                 $query1= $db->query("select * from districts where districtId=$distId");
-                                $result = $query1->getRow()
+                                $result = $query1->getRow();
                             ?>
                             <option value="<?=$result->districtId?>"><?=$result->districtName?> </option>
                             <?php 
@@ -102,6 +102,7 @@
         function getSectors(ev){
             id = ev.target.value 
             sectors = document.getElementsByClassName("sectors")
+            console.log(sectors[0]);
             for (let i = 0; i < sectors.length; i++) {
                     sectors[i].style.display = 'none'
             }
