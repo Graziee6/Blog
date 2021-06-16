@@ -101,13 +101,13 @@ class Register extends Controller{
                 $session = session();
                 $profile_image = $file->getRandomName();
           
-                if ($file->move("images", $profile_image)) {
+                if ($file->move("assets/images/profiles", $profile_image)) {
           
                   $userModel = new UserModel();
-                    $name = "/images/" . $profile_image;
-                    $upload = $userModel->setProfile($name, $session->user_id);
+                    $upload = $userModel->setProfile($profile_image, $session->user_id);
                   if($upload){
-                    return redirect()->to('/dash');
+                    session()->user_profile = $profile_image;
+                    return redirect()->to('/dashboard');
                   }
                   else{
                       return view("user_account/uploadProfile", [
@@ -117,6 +117,22 @@ class Register extends Controller{
             }
         }
     }
-}
+    }
+    public function deleteProfile()
+    {
+        $session = session();
+        $file = 'assets/images/profiles/'.$session->user_profile;
+        if (is_readable($file) && unlink($file)) {
+            $userModel = new UserModel();
+            session()->user_profile = '';
+            $userModel->deleteProfile(session()->user_id);
+            return redirect()->to('/dashboard');
+        }
+        else{
+            return view("user_account/uploadProfile", [
+            "validation" => $this->validator,
+          ]);;
+        }
+    }
 }
 ?>

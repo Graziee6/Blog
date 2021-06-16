@@ -8,5 +8,9 @@ class UserModel extends Model{
     public function setProfile($profile, $id){
         return $this->db->query("update users set user_profile='$profile' where Id=$id");
     }
+    public function deleteProfile($id)
+    {
+        return $this->db->query("update users set user_profile='' where Id = $id");
+    }
 }
 ?>

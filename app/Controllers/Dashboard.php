@@ -5,10 +5,8 @@ class Dashboard extends Controller{
     public function index(){
         return view('user_account/dashboard');
     }
-    public function account(){
-        echo view('settings');
-    }
-    public function accountSettings(){
+    public function viewProfile(){
+        return view("user_account/viewProfile");
     }
 }
 ?>

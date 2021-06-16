@@ -23,6 +23,10 @@
           <li class="nav-item">
             <a class="nav-link text-light" href="#">blogs</a>
           </li>
+           
+        <li class="nav-item">
+          <a class="nav-link text-light" href="/dashboard/viewProfile">profile</a>
+        </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="/register/updateAccount">account <span class="sr-only">(current)</span></a>
           </li>

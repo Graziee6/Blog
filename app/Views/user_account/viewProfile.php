@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
+    <link  rel="stylesheet" href= "<?=base_url('assets/css/style.css')?>">
     <title>upload Profile</title>
 </head>
 <body>
@@ -33,16 +33,17 @@
   </div>
   <a class="btn btn-primary" href="/Login/logout">logout</a>
 </nav>
-    <form action="/register/uploadProfile" method="post" enctype="multipart/form-data">
-        <?php 
-            if (isset($validation)) {
-         ?>
-            <div class="alert alert-message"><?=$validation->listErrors()?></div>
-         <?php       
-            }
-        ?>
-        <input type="file" name="profile" id="profile" accept="image/*">
-        <input type="submit" value="upload profile">
-    </form>
+    <?php
+        if (empty(session()->user_profile)) {
+    ?>
+        <h1 class="jumbotron">No profile</h1>
+        <a href="http://localhost/register/profile" class="btn btn-primary">Upload Profile</a>
+    <?php
+        }else{
+    ?>      
+            <img src="<?=base_url('assets/images/profiles/'.session()->user_profile)?>" alt="profile">
+            <a href="http://localhost/register/profile" class="btn btn-primary">update</a>
+            <a href="http://localhost/register/deleteProfile" class="btn btn-primary">delete</a>
+    <?php } ?>
 </body>
 </html>

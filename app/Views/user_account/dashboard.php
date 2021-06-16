@@ -36,10 +36,14 @@ $(document).ready(function(){
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-light" href="/dashboard">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-light" href="/Blog">blogs</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/dashboard/viewProfile">profile</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-light" href="/register/updateAccount">account</a>
