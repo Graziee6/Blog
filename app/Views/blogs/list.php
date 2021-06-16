@@ -8,27 +8,51 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
-<link rel="stylesheet" href="./assets/css/style.css">
-<link rel="stylesheet" href="./assets/css/bootstrap.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/bootstrap.css">
+<style>
+  .sidebar-logo {
+  height: 80px;
+  /* max-width:10%; */
+  position: relative;
+  /* padding: 10px 1px; */
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .sidebar-logo img {
+  height: 50px;
+  max-width: 100%;
+  }
+  .bg-purple{
+     background-color:#3F3F3F;
+  }
+</style>
 <title>Medium</title>
 </head>
 <body>
-
+    <script>
+        $(document).ready(function() {
+    $('#example').DataTable();
+} );
+    </script>
 <nav class="navbar navbar-expand-lg navbar-light bg-purple">
-  <a class="navbar-brand text-white h4" href="#">Medium</a>
+  <a class="navbar-brand text-white h4" href="#">
+    <div class="sidebar-logo">
+    <img src="../assets/aimages/logo-lg.png" alt="Comapny logo">
+  </div>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link text-light" href="/Dashboard">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-light" href="/home/indexa">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="/Blog">blogs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-light" href="/register/updateAccount">account</a>
+        <a class="nav-link text-light" href="/Dashboard">dashboard</a>
       </li>
     </ul>
   </div>
@@ -47,7 +71,7 @@
     <div class="container .ctr">
     <div class="row">
 <!--  -->
-    <div class="col-md-12 mt-4 text-end">
+    <div class="col-md-12 mt-4 text-right">
     <a href="<?php echo base_url("blogs/create");?>" class="btn btn-primary">Add</a>
     </div>
     </div>

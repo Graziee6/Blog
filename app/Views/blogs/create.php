@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
     <title>Medium</title>
+    <style>
+        .bg-purple{background-color: black;}
+    </style>
 </head>
 <body>
     <div class="container-fluid bg-purple shadow-sm">

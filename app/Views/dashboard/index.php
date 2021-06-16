@@ -8,22 +8,13 @@
         Apex Admin
     </title>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-<link rel="shortcut icon" href="./assets/aimages/logo-mb.png" type="image/png"> 
-<!-- GOOGLE FONT -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-<!-- BOXICONS -->
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-<!-- APP CSS -->
-<link rel="stylesheet" href="./assets/css/grid.css">
-<link rel="stylesheet" href="./assets/css/app.css">
-
+<link rel="stylesheet" href="./assets/aacss/grid.css">
+<link rel="stylesheet" href="./assets/aacss/app.css">
 </head>
-
 <body>
-
-    <!-- SIDEBAR -->
     <div class="sidebar">
         <div class="sidebar-logo">
             <img src="./assets/aimages/logo-lg.png" alt="Comapny logo">
@@ -42,7 +33,6 @@
                 <i class='bx bx-log-out bx-flip-horizontal'></i>
             </button>
         </div>
-        <!-- SIDEBAR MENU -->
         <ul class="sidebar-menu">
             <li>
                 <a href="#" class="active">
@@ -50,7 +40,6 @@
                     <span>dashboard</span>
                 </a>
             </li>
-
 <li>
 <a href="/Home/indexa">
 <i class='bx bx-home'></i><span>Home</span>
@@ -75,32 +64,27 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/register/updateAccount">
                             account settings
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            billing
                         </a>
                     </li>
                 </ul>
             </li>
             <li class="sidebar-submenu">
-                <a href="#" class="sidebar-menu-dropdown">
+                <a href="" class="sidebar-menu-dropdown">
                     <i class='bx bx-category'></i>
-                    <span>project</span>
+                    <span>Manage blogs</span>
                     <div class="dropdown-icon"></div>
                 </a>
                 <ul class="sidebar-menu sidebar-menu-dropdown-content">
                     <li>
-                        <a href="#">
+                        <a href="/blog/index">
                             list
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            add project
+                        <a href="/blog/create">
+                            add blog
                         </a>
                     </li>
                 </ul>
@@ -115,12 +99,6 @@
                 <a href="#">
                     <i class='bx bx-chat'></i>
                     <span>chat</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-calendar'></i>
-                    <span>calendar</span>
                 </a>
             </li>
             <li class="sidebar-submenu">
@@ -141,11 +119,7 @@
             <li><a href="login/logout"><i class='bx bx-log-out'></i><span>Logout</span></a>
             </li>
         </ul>
-        <!-- END SIDEBAR MENU -->
     </div>
-    <!-- END SIDEBAR -->
-
-    <!-- MAIN CONTENT -->
     <div class="main">
         <div class="main-header">
             <div class="mobile-toggle" id="mobile-toggle">
@@ -291,13 +265,9 @@
                             </ul>
                         </div>
                     </div>
-                   
                 </div>
-                    
-
-                <div class="col-8 col-md-12 col-sm-12">
-                   
-                    <div class="box f-height">
+                            <div class="col-8 col-md-12 col-sm-12">
+                            <div class="box f-height">
                         <div class="box-header">
                             Comments
                         </div>
@@ -305,11 +275,9 @@
                             <div id="customer-chart"></div>
                         </div>
                     </div>
-                
-                </div>
+                        </div>
                 <div class="col-12">
-                    
-                    <div class="box">
+                            <div class="box">
                         <div class="box-header">
                             Recent Blogs
                         </div>
@@ -335,8 +303,6 @@
     <td><?php echo $blog['blogDescription']?></td>
     <td class="show-read-more"> <?=$blog['blogContent']?> 
 </td>
-
-    
 <td class="pb-2"><a href="<?php echo base_url('blogs/edit/'.$blog['blogId'])?>" class="btn btn-primary btn-sm">Edit</a> 
 <a href="#" onClick="deleteConfirm(<?php echo $blog['blogId']?>);" class="btn btn-danger btn-sm">Delete</a></td> 
     </tr>
@@ -354,13 +320,7 @@
             </div>
         </div>
     </div>
-   
-
-    <div class="overlay"></div>
-
-  
-    
-    
+       <div class="overlay"></div>
 <script>
 $(document).ready(function(){
     var maxLength = 50;
@@ -377,5 +337,4 @@ $(document).ready(function(){
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <script src="./assets/js/app.js"></script>
 </body>
-
 </html>

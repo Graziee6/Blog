@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
     <title>Update</title>
+    <style>
+        .bg-purple{background-color:#3F3F3F;}
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-purple">
@@ -28,7 +31,7 @@
           </li>
         </ul>
       </div>
-      <a class="btn btn-primary" href="/Login/logout">logout</a>
+      <a class="btn btn-primary" href="#">image</a>
     </nav>
     <div class="container-fluid bg-light">
         <div class="d-flex flex-row justify-content-between">
