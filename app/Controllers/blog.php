@@ -11,10 +11,9 @@ public function index(){
     echo View("blogs/list.php",$data);   
             // echo view('dashboard/index',$data);
     }
-    public function readMore(){
+    public function readMore($blogId){
         $session = session();
-        $id = $session->getFlashdata('blogId');
-        $session->setFlashdata('blogId', $id);
+        $session->setFlashdata('blogId', $blogId);
         return view('/blogs/read-more');
     }
 public function create(){
@@ -30,7 +29,6 @@ public function create(){
     if($input==true){
         $session = session();
        $model=new BlogModel();
-    //    $model=$model->where('writerId','1');
        $model->insert([
             'blogTitle'=>$this->request->getPost('blogTitle'),
             'blogDescription'=>$this->request->getPost('blogDescription'),

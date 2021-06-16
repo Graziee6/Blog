@@ -16,8 +16,8 @@
 <!-- BOXICONS -->
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 <!-- APP CSS -->
-<link rel="stylesheet" href="./assets/acss/grid.css">
-<link rel="stylesheet" href="./assets/acss/app.css">
+<link rel="stylesheet" href="./assets/css/grid.css">
+<link rel="stylesheet" href="./assets/css/app.css">
 
 </head>
 
@@ -46,11 +46,16 @@
         <ul class="sidebar-menu">
             <li>
                 <a href="#" class="active">
-                    <i class='bx bx-home'></i>
+                  <i class='bx bxs-dashboard'></i>
                     <span>dashboard</span>
                 </a>
             </li>
 
+<li>
+<a href="/Home/indexa">
+<i class='bx bx-home'></i><span>Home</span>
+</a>
+</li>
             <li>
                 <a href="#">
                     <i class='bx bx-chart'></i>
@@ -132,6 +137,8 @@
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li><a href="login/logout"><i class='bx bx-log-out'></i><span>Logout</span></a>
             </li>
         </ul>
         <!-- END SIDEBAR MENU -->
@@ -368,7 +375,7 @@ $(document).ready(function(){
 });
 </script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        <script src="./assets/ajs/app.js"></script>
+        <script src="./assets/js/app.js"></script>
 </body>
 
 </html>

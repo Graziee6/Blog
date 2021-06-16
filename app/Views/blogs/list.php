@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
 <link rel="stylesheet" href="./assets/css/style.css">
-<!-- <link rel="stylesheet" href="./assets/css/bootstrap.css"> -->
+<link rel="stylesheet" href="./assets/css/bootstrap.css">
 <title>Medium</title>
 </head>
 <body>
-    <script>
-        $(document).ready(function() {
-    $('#example').DataTable();
-} );
-    </script>
-    <div class="container-fluid bg-purple shadow-sm">
-    <div class="container pb-2 pt-2">
-    <div class="text-white h4">Medium</div>
-    </div>
-    </div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-purple">
+  <a class="navbar-brand text-white h4" href="#">Medium</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link text-light" href="/Dashboard">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/Blog">blogs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/register/updateAccount">account</a>
+      </li>
+    </ul>
+  </div>
+  <a class="btn btn-primary" href="/Login/logout">logout</a>
+</nav>
+
     <div class="bg-white shadow-sm">
     <div class="container">
     <div class="row">

@@ -52,10 +52,15 @@
                     <div class="mb-3 form-group">
                         <h4 class="p-2">Location</h4>
                         <select  onchange="getSectors(event)" class="form-select" aria-label="select district" >
-                            <option value="#">--select district--</option>
                             <?php
                                 $db = db_connect();
-                                $query= $db->query("select * from districts");
+                                $distId = $session->user_district;
+                                $query1= $db->query("select * from districts where districtId=$distId");
+                                $result = $query1->getRow()
+                            ?>
+                            <option value="<?=$result->districtId?>"><?=$result->districtName?> </option>
+                            <?php 
+                                $query= $db->query("select * from districts where districtId!=$distId");
                                 if($query){
                                     foreach ($query->getResult() as $district) {
                             ?>
@@ -68,7 +73,13 @@
                     </div>
                     <div class="mb-3 form-group">
                         <select name="sector" id="sector" class="form-select">
-                                <option value="#">--select sector--</option>
+                        <?php
+                                $db = db_connect();
+                                $secId = $session->user_sector;
+                                $query2= $db->query("select * from sectors where sectorId=$secId");
+                                $result2 = $query2->getRow()
+                            ?>
+                            <option value="<?=$result2->sectorId?>"><?=$result2->sectorName?> </option>
                             <?php 
                                 $db = db_connect();
                                 $query= $db->query("select * from sectors");

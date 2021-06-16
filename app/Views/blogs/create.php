@@ -51,7 +51,7 @@ if(isset($validation) && $validation->hasError('blogTitle')){
 }
 ?></div>
 <div class="form-group">
-<label for="">Description</label>
+<label for="description">Description</label>
 <input type="text" placeholder="description" name="blogDescription" id="description" class="form-control"  <?php echo (isset($validation) && $validation->hasError('description'))?'is-invalid':''?>>
 <?php 
 if(isset($validation) && $validation->hasError('blogDescription')){

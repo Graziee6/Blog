@@ -14,13 +14,24 @@ document.querySelectorAll('.sidebar-submenu').forEach(e => {
     }
 })
 
+let category_options = {
+    series: [44, 55, 41, 17],
+    labels: ['Cloths', 'Devices', 'Bags', 'Watches'],
+    chart: {
+        type: 'donut',
+    },
+    colors: ['#6ab04c', '#2980b9', '#f39c12', '#d35400']
+}
+
+let category_chart = new ApexCharts(document.querySelector("#category-chart"), category_options)
+category_chart.render()
 
 let customer_options = {
     series: [{
-        name: "Motivating Comments",
+        name: "Discouraging Comments",
         data: [40, 70, 20, 90, 36, 80, 30, 91, 60]
     },{
-        name: "Discouraging Comments",
+        name: "Motivating Comments",
         data: [20, 30, 10, 20, 16, 40, 20, 51, 10]
     }],
     colors: ['#6ab04c', '#2980b9'],
