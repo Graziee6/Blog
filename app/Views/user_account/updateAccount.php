@@ -10,11 +10,29 @@
     <title>Update</title>
     <style>
         .bg-purple{background-color:#3F3F3F;}
+              .sidebar-logo {
+  height: 80px;
+  /* max-width:10%; */
+  position: relative;
+  /* padding: 10px 1px; */
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .sidebar-logo img {
+  height: 50px;
+  max-width: 100%;
+  }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-purple">
-      <a class="navbar-brand text-white h4" href="#">Medium</a>
+    <a class="navbar-brand text-white h4" href="#">
+    <div class="sidebar-logo">
+    <img src="../assets/aimages/logo-lg.png" alt="Comapny logo">
+  </div>
+  </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -26,6 +44,10 @@
           <li class="nav-item">
             <a class="nav-link text-light" href="#">blogs</a>
           </li>
+           
+        <li class="nav-item">
+          <a class="nav-link text-light" href="/dashboard/viewProfile">profile</a>
+        </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="/register/updateAccount">account <span class="sr-only">(current)</span></a>
           </li>
@@ -50,16 +72,16 @@
                     </div>
                     <div class="mb-3">
                         <label for="InputForEmail" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="InputForEmail" value="<?=$session->user_email?>" required>
+                        <input type="email" name="email" class="form-control" id="InputForEmail" readonly value="<?=$session->user_email?>" required>
                     </div>
                     <div class="mb-3 form-group">
                         <h4 class="p-2">Location</h4>
-                        <select  onchange="getSectors(event)" class="form-select" aria-label="select district" >
+                        <select  onchange="getSectors(event)" class="form-select" name="district" aria-label="select district" >
                             <?php
                                 $db = db_connect();
                                 $distId = $session->user_district;
                                 $query1= $db->query("select * from districts where districtId=$distId");
-                                $result = $query1->getRow()
+                                $result = $query1->getRow();
                             ?>
                             <option value="<?=$result->districtId?>"><?=$result->districtName?> </option>
                             <?php 
@@ -105,6 +127,7 @@
         function getSectors(ev){
             id = ev.target.value 
             sectors = document.getElementsByClassName("sectors")
+            console.log(sectors[0]);
             for (let i = 0; i < sectors.length; i++) {
                     sectors[i].style.display = 'none'
             }

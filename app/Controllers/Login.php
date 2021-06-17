@@ -5,6 +5,10 @@ use App\Models\userModel;
 class Login extends Controller{
     public function index(){
         helper(['form']);
+        
+        if(session()->user_id){
+            return redirect()->to('/dashboard');
+        }
         echo view('user_account/login');
     }
     public function auth(){
@@ -18,15 +22,16 @@ class Login extends Controller{
             $verify_pass = password_verify($password, $pass);
             if($verify_pass){
                 $ses_data = [
-                    'user_id' => $data['userId'],
+                    'user_id' => $data['Id'],
                     'user_name' => $data['user_name'],
                     'user_email' => $data['user_email'],
                     'user_district' => $data['districtId'],
                     'user_sector' => $data['sectorId'],
+                    'user_profile'=>$data['user_profile'],
                     'logged_in' => TRUE
                 ];
                 $session->set($ses_data);
-                return redirect()->to('/dashboard');
+                return redirect()->to('/Dashboard');
             }else{
                 $session->setFlashdata('msg', 'Wrong Password ');
                 return redirect()->to('/login');

@@ -14,7 +14,7 @@ public function index(){
     public function readMore($blogId){
         $session = session();
         $session->setFlashdata('blogId', $blogId);
-        return view('/blogs/read-more');
+        echo view('/blogs/read-more');
     }
 public function create(){
     $session=\Config\Services::session();

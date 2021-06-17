@@ -11,10 +11,8 @@ class Dashboard extends Controller{
     $data['blogs']=$blogArray;
         echo view('dashboard/index',$data);
     }
-    public function account(){
-        echo view('settings');
-    }
-    public function accountSettings(){
+    public function viewProfile(){
+        return view("user_account/viewProfile");
     }
 }
 ?>

@@ -359,7 +359,6 @@ if(!empty($data['blogs'])){
     <h6 class="card-subtitle mb-2 text-muted">Tesla Model s plaid </h6>
     <p class="card-text show-read-more"> New Tesla Model s plaid is out now go and By peeh </p>
                 <a href="/Blog/readMore/<?=$blogId?>"class="read-more"> <i class="fas fa-long-arrow-alt-right"></i>read more...</a>
-
                </div>
             </div>      
     

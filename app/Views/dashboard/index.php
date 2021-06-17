@@ -24,10 +24,18 @@
         </div>
         <div class="sidebar-user">
             <div class="sidebar-user-info">
-                <img src="./assets/aimages/user-image.jpg" alt="User picture" class="profile-image">
-                <div class="sidebar-user-name">
-                    Bruce
-                </div>
+                <?php 
+                if(empty(session()->user_profile)){
+echo "<img src=\"assets\images\person.svg\" class=\"profile-image\">";
+                }else{
+                    ?>
+<img src=<?php echo "assets/images/profiles/".session()->user_profile?> class="profile-image">
+                
+<?php                }
+?>
+    <div class="sidebar-user-name">
+                <?php  echo session()->user_name?>
+                </div>                
             </div>
             <button class="btn btn-outline">
                 <i class='bx bx-log-out bx-flip-horizontal'></i>
@@ -59,7 +67,7 @@
                 </a>
                 <ul class="sidebar-menu sidebar-menu-dropdown-content">
                     <li>
-                        <a href="#">
+                        <a href="Dashboard/viewProfile">
                             edit profile
                         </a>
                     </li>

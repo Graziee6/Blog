@@ -55,7 +55,7 @@
                     </div>
                     <div class="mb-3 form-group">
                         <select name="sector" id="sector" class="form-select" name="sector">
-                                <option value="#">--select sector--</option>
+                                <option selected value="#">--select sector--</option>
                             <?php 
                                 $db = db_connect();
                                 $query= $db->query("select * from sectors");
@@ -76,14 +76,15 @@
         </div>
     </div>
     <script>
-        function getSectors(ev){
+         function getSectors(ev){
             id = ev.target.value 
             sectors = document.getElementsByClassName("sectors")
-            for (let i = 0; i < sectors.length; i++) {
+            for (let i = 1; i < sectors.length; i++) {
                     sectors[i].style.display = 'none'
             }
-            for (let i = 0; i < sectors.length; i++) {
-                if( [i].className.includes(id)){
+            
+            for (let i = 1; i < sectors.length; i++) {
+                if(sectors[i].className.includes(id)){
                     sectors[i].style.display='block'
                 }
             }
