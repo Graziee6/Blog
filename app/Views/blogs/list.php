@@ -60,10 +60,6 @@
 </li>
       
       <li class="nav-item">
-        <a class="nav-link text-light" href="/dashboard/viewProfile">profile</a>
-      </li>
-      
-      <li class="nav-item">
         <a class="nav-link text-light" href="/Dashboard">dashboard</a>
       </li>
     </ul>

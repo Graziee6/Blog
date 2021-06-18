@@ -9,7 +9,7 @@ class Login extends Controller{
         if(session()->user_id){
             return redirect()->to('/dashboard');
         }
-        echo view('user_account/login');
+        echo View('user_account/login');
     }
     public function auth(){
         $session = session();

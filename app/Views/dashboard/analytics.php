@@ -11,39 +11,38 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-<link rel="stylesheet" href="./assets/aacss/grid.css">
-<link rel="stylesheet" href="./assets/aacss/app.css">
+<link rel="stylesheet" href=<?php echo base_url("./assets/aacss/grid.css")?>>
+<link rel="stylesheet" href=<?php echo base_url("./assets/aacss/app.css")?>>
+<style>
+.cont{
+    display: flex;
+    /* margin-top:10%; */
+}
+
+</style>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="sidebar-logo">
-            <img src="./assets/aimages/logo-lg.png" alt="Comapny logo">
+<div class="S sidebar">
+          <div class="sidebar-logo">
+            <img src=<?php echo base_url("assets/aimages/logo-lg.png")?> alt="Comapny logo">
             <div class="sidebar-close" id="sidebar-close">
                 <i class='bx bx-left-arrow-alt'></i>
             </div>
         </div>
-        <div class="sidebar-user">
-            <div class="sidebar-user-info">
-                <?php 
+  <div>
+                  <?php 
                 if(empty(session()->user_profile)){
-echo "<img src=\"assets\images\person.svg\" class=\"profile-image\">";
+                    echo '<img src="./assets/images/person.svg" class="profile-image">';
                 }else{
                     ?>
-<img src=<?php echo "assets/images/profiles/".session()->user_profile?> class="profile-image">
+<img src=<?php echo base_url("assets/images/profiles/".session()->user_profile)?> class="profile-image">
                 
 <?php                }
-?>
-    <div class="sidebar-user-name">
-                <?php  echo session()->user_name?>
-                </div>                
-            </div>
-            <button class="btn btn-outline">
-                <i class='bx bx-log-out bx-flip-horizontal'></i>
-            </button>
-        </div>
-        <ul class="sidebar-menu">
-            <li>
-                <a href="#" class="active">
+?><span style="font-weight:700;text-transform:capitalize;"><?php echo session()->user_name?></span>
+  </div>
+    <ul class="sidebar-menu">
+                 <li>
+                <a href="/Dashboard">
                   <i class='bx bxs-dashboard'></i>
                     <span>dashboard</span>
                 </a>
@@ -54,7 +53,7 @@ echo "<img src=\"assets\images\person.svg\" class=\"profile-image\">";
 </a>
 </li>
             <li>
-                <a href="/Dashboard/analytics">
+                <a href="#" class="active">
                     <i class='bx bx-chart'></i>
                     <span>analytic</span>
                 </a>
@@ -127,17 +126,17 @@ echo "<img src=\"assets\images\person.svg\" class=\"profile-image\">";
             <li><a href="login/logout"><i class='bx bx-log-out'></i><span>Logout</span></a>
             </li>
         </ul>
-    </div>
-    <div class="main">
-        <div class="main-header">
+  </div>
+<div class="main">
+   <div class="main-header">
             <div class="mobile-toggle" id="mobile-toggle">
                 <i class='bx bx-menu-alt-right'></i>
             </div>
             <div class="main-title">
-                dashboard
+               analytics
             </div>
         </div>
-        <div class="main-content">
+                <div class="main-content">
             <div class="row">
                 <div class="col-3 col-md-6 col-sm-12">
                     <div class="box box-hover">
@@ -208,73 +207,9 @@ echo "<img src=\"assets\images\person.svg\" class=\"profile-image\">";
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-4 col-md-6 col-sm-12">
-                    
-                    <div class="box f-height">
-                        <div class="box-header">
-                            Top blogs
-                        </div>
-                        <div class="box-body">
-                            <ul class="product-list">
-                                <li class="product-list-item">
-                                    <div class="item-info">
-                                        <img src="./assets/aimages/thumb-7.jpg" alt="product image">
-                                        <div class="item-name">
-                                            <div class="product-name">Jacket</div>
-                                            <div class="text-second">Cloths</div>
-                                        </div>
-                                    </div>
-                                    <div class="item-sale-info">
-                                        <div class="text-second">Trends</div>
-                                        <div class="product-sales">5,930</div>
-                                    </div>
-                                </li>
-                                <li class="product-list-item">
-                                    <div class="item-info">
-                                        <img src="./assets/aimages/sneaker.jpg" alt="product image">
-                                        <div class="item-name">
-                                            <div class="product-name">sneaker</div>
-                                            <div class="text-second">Cloths</div>
-                                        </div>
-                                    </div>
-                                    <div class="item-sale-info">
-                                        <div class="text-second">Trends</div>
-                                        <div class="product-sales">5,630</div>
-                                    </div>
-                                </li>
-                                <li class="product-list-item">
-                                    <div class="item-info">
-                                        <img src="./assets/aimages/headphone.jpg" alt="product image">
-                                        <div class="item-name">
-                                            <div class="product-name">headphone</div>
-                                            <div class="text-second">Devices</div>
-                                        </div>
-                                    </div>
-                                    <div class="item-sale-info">
-                                        <div class="text-second">Trends</div>
-                                        <div class="product-sales">2,130</div>
-                                    </div>
-                                </li>
-                                <li class="product-list-item">
-                                    <div class="item-info">
-                                        <img src="./assets/aimages/backpack.jpg" alt="product image">
-                                        <div class="item-name">
-                                            <div class="product-name">Backpack</div>
-                                            <div class="text-second">Bags</div>
-                                        </div>
-                                    </div>
-                                    <div class="item-sale-info">
-                                        <div class="text-second">Trends</div>
-                                        <div class="product-sales">7,430</div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                            <div class="col-8 col-md-12 col-sm-12">
+            </div>
+        <div class="cont">
+                            <div class="col-7 col-md-12 col-sm-12">
                             <div class="box f-height">
                         <div class="box-header">
                             Comments
@@ -284,50 +219,16 @@ echo "<img src=\"assets\images\person.svg\" class=\"profile-image\">";
                         </div>
                     </div>
                         </div>
-                <div class="col-12">
-                            <div class="box">
+   <div class="col-5 col-md-12 col-sm-12">
+                            <div class="box f-height">
                         <div class="box-header">
-                            Recent Blogs
-                        </div>
-                        <div class="box-body overflow-scroll">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Blog Title</th>
-                                        <th>Description</th>
-                                        <th>Content</th>
-                                        <th width="150">ACTION</th>
-                                    </tr>
-                                </thead>
-                                   <?php
-    if(!empty($blogs)){
-        foreach($blogs as $blog){
-    ?>
-    <tbody>
-    <tr>
-<td><?php echo $blog['blogId']?></td>
-    <td><?php echo $blog['blogTitle']?></td>
-    <td><?php echo $blog['blogDescription']?></td>
-    <td class="show-read-more"> <?=$blog['blogContent']?> 
-</td>
-<td class="pb-2"><a href="<?php echo base_url('blogs/edit/'.$blog['blogId'])?>" class="btn btn-primary btn-sm">Edit</a> 
-<a href="#" onClick="deleteConfirm(<?php echo $blog['blogId']?>);" class="btn btn-danger btn-sm">Delete</a></td> 
-    </tr>
-    <?php } }else {?>
-    <tr>
-    <td colspan="5">Record not found</td>
-    </tr>
-    </tbody>
-    <?php }?>
-                            </table>
+                 Categories                        </div>
+                        <div class="box-body">
+                            <div id="category-chart"></div>
                         </div>
                     </div>
-          
-                </div>
-            </div>
-        </div>
-    </div>
+                        </div>
+       </div>
        <div class="overlay"></div>
 <script>
 $(document).ready(function(){
@@ -343,6 +244,6 @@ $(document).ready(function(){
 });
 </script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        <script src="./assets/js/app.js"></script>
+        <script src=<?php echo base_url("./assets/js/app.js")?>></script>
 </body>
 </html>

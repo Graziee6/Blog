@@ -46,7 +46,7 @@ $session = session();
 <nav class="navbar navbar-expand-lg navbar-light bg-purple">
   <a class="navbar-brand text-white h4" href="#">
    <div class="sidebar-logo">
-    <img src="../assets/aimages/logo-lg.png" alt="Comapny logo">
+    <img src=<?php echo base_url('assets/aimages/logo-lg.png');?> alt="Comapny logo">
   </div>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,7 @@ $session = session();
     </ul>
   </div>
   <!-- <a class="btn btn-primary" href="/Login/logout">logout</a> -->
-  <img src="../assets/aimages/user-image-3.png" class="profile-image">
+  <img src=<?php echo base_url('assets/images/people.svg');?> class="profile-image">
 </nav>
     <div class="container-fluid d-flex flex-column align-items-center mt-5">
         <div class="card w-75 p-5 mb-3">

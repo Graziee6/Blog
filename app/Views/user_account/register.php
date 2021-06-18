@@ -18,7 +18,7 @@
                 <?php if(isset($validation)):?>
                     <div class="alert alert-danger"><?=$validation->listErrors()?></div>
                 <?php endif;?>
-                <form action="/register/save" method="POST">
+                <form action="/Register/save" method="POST">
                     <div class="mb-3">
                         <label for="InputForName" class="form-label">Name</label>
                         <input type="text" name="name" class="form-control" id="InputForName" value="<?= set_value('name') ?>" required>

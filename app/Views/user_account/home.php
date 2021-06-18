@@ -181,7 +181,7 @@ if(!empty(session()->user_profile)){
 <img src="../assets/aimages/user-image-3.png" class="profile-image">
 <?php              }
     else{
-      echo "<a class=\"btn btn-primary\" href=\"Register\index\">join us</a>";
+      echo '<a class="btn btn-primary" href="/Register/index">join us</a>';
                 }
 ?>          
 </nav>

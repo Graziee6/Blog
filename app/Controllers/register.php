@@ -65,7 +65,7 @@ class Register extends Controller{
                 'districtId' => $this->request->getVar('district'),
                 'sectorId' => $this->request->getVar('sector'),
             ];
-            $model->save($data);
+            $model->insert($data);
             return redirect()->to('/register/profile');
         }
         else{
