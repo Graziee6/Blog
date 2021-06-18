@@ -3,19 +3,33 @@ namespace App\Controllers;
 use App\Models\BlogModel;
 class Blog extends BaseController{
 public function index(){
+if (empty(session()->user_id)) {
+            return redirect()->to('/Login');
+        }else{
     $session=\Config\Services::session();
     $data['session']=$session;
     $model=new BlogModel();
     $blogArray=$model->getRecords();
     $data['blogs']=$blogArray;
     echo View("blogs/list.php",$data);   
-    }
+            // echo view('dashboard/index',$data);
+        }
+        }
     public function readMore($blogId){
-        $session = session();
-        $session->setFlashdata('blogId', $blogId);
-        return view('/blogs/read-more');
+        if (empty(session()->user_id)) {
+            return redirect()->to('/Login');
+        }
+        else{
+            $session = session();
+            $session->setFlashdata('blogId', $blogId);
+            echo view('/blogs/read-more');
+        }
     }
 public function create(){
+            if (empty(session()->user_id)) {
+            return redirect()->to('/Login');
+        }
+        else{
     $session=\Config\Services::session();
     helper('form');
     $data=[];
@@ -41,10 +55,14 @@ public function create(){
         $data['validation']=$this->validator;
     }
 }
-
 return View('blogs/create',$data);
+        }
     }
      public function edit($blogId){
+                 if (empty(session()->user_id)) {
+            return redirect()->to('/Login');
+        }
+        else{
              $session=\Config\Services::session();
              helper('form');
              $model=new BlogModel();
@@ -78,7 +96,12 @@ $data['blog']=$blog;
         }
         return View("blogs/edit",$data);
     }
+}
     public function delete($blogId){
+         if (empty(session()->user_id)) {
+            return redirect()->to('/Login');
+        }
+        else{
         $session=\Config\Services::session();
         $model = new BlogModel();
         $blog=$model->getRow($blogId);
@@ -92,8 +115,12 @@ $data['blog']=$blog;
            return redirect()->to('/blogs');
         
     }
-
+    }
     public function generatePDF(){
+             if (empty(session()->user_id)) {
+            return redirect()->to('/Login');
+        }
+        else{
         $dompdf = new \Dompdf\Dompdf();
         $dompdf->loadHtml(view('/blogs/read-more'));
         $dompdf->setPaper('A4','portrait');
@@ -101,5 +128,6 @@ $data['blog']=$blog;
         $dompdf->stream();
         return redirect()->to(base_url('Blog/readmore'));
     }
+}
 }
 ?>

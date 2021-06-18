@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
     <title>Medium</title>
+    <style>
+    .bg-purple{
+        background-color:#333;
+    }
+    .sidebar-logo {
+  height: 80px;
+  /* max-width:10%; */
+  position: relative;
+  /* padding: 10px 1px; */
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .sidebar-logo img {
+  height: 50px;
+  max-width: 100%;
+  }
+  .profile-image {
+    width:45px;
+    height:45px;
+    border-radius: 10px;
+}
+    </style>
     <?php
 
         use App\Models\BlogModel;
@@ -20,14 +44,18 @@ $session = session();
 </head>
 <body class="bg-light">
 <nav class="navbar navbar-expand-lg navbar-light bg-purple">
-  <a class="navbar-brand text-white h4" href="#">Medium</a>
+  <a class="navbar-brand text-white h4" href="#">
+   <div class="sidebar-logo">
+    <img src=<?php echo base_url('assets/aimages/logo-lg.png');?> alt="Comapny logo">
+  </div>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link text-light" href="/Dashboard/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-light" href="/Dashboard">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-light" href="/Blog">blogs</a>
@@ -37,7 +65,8 @@ $session = session();
       </li>
     </ul>
   </div>
-  <a class="btn btn-primary" href="/Login/logout">logout</a>
+  <!-- <a class="btn btn-primary" href="/Login/logout">logout</a> -->
+  <img src=<?php echo base_url('assets/images/people.svg');?> class="profile-image">
 </nav>
     <div class="container-fluid d-flex flex-column align-items-center mt-5">
         <div class="card w-75 p-5 mb-3">

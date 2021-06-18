@@ -9,7 +9,7 @@ class Login extends Controller{
         if(session()->user_id){
             return redirect()->to('/dashboard');
         }
-        echo view('user_account/login');
+        echo View('user_account/login');
     }
     public function auth(){
         $session = session();
@@ -27,10 +27,11 @@ class Login extends Controller{
                     'user_email' => $data['user_email'],
                     'user_district' => $data['districtId'],
                     'user_sector' => $data['sectorId'],
+                    'user_profile'=>$data['user_profile'],
                     'logged_in' => TRUE
                 ];
                 $session->set($ses_data);
-                return redirect()->to('/dashboard');
+                return redirect()->to('/Dashboard');
             }else{
                 $session->setFlashdata('msg', 'Wrong Password ');
                 return redirect()->to('/login');

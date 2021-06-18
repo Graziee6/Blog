@@ -8,10 +8,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css');?>">
     <title>Update</title>
+    <style>
+        .bg-purple{background-color:#3F3F3F;}
+              .sidebar-logo {
+  height: 80px;
+  /* max-width:10%; */
+  position: relative;
+  /* padding: 10px 1px; */
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .sidebar-logo img {
+  height: 50px;
+  max-width: 100%;
+  }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-purple">
-      <a class="navbar-brand text-white h4" href="#">Medium</a>
+    <a class="navbar-brand text-white h4" href="#">
+    <div class="sidebar-logo">
+    <img src="../assets/aimages/logo-lg.png" alt="Comapny logo">
+  </div>
+  </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -32,7 +53,7 @@
           </li>
         </ul>
       </div>
-      <a class="btn btn-primary" href="/Login/logout">logout</a>
+      <a class="btn btn-primary" href="#">image</a>
     </nav>
     <div class="container-fluid bg-light">
         <div class="d-flex flex-row justify-content-between">

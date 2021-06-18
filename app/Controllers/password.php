@@ -12,26 +12,29 @@ class Password extends BaseController
 	public function index()
 	{
         if(session()->user_id){
-            return redirect()->to('user_account/dashboard');
+            return redirect()->to('/Dashboard');
         }
 		return view('user_account/password');
 	}
 
     public function displayCode(){
         if(session()->user_id){
-            return redirect()->to('user_account/dashboard');
+            return redirect()->to('/Dashboard');
         }
         return view('user_account/code');
+        return redirect()->to('user_account/code');
     }
 
     public function displayChangePassword(){
+        // if (empty(session()->user_id)) {
+        //     return redirect()->to('/Login');
+        // }
+        // else{
         return view('user_account/changePassword');
-    }
+    // }
+}
 
     public function changePassword(){
-        if(empty(session()->user_email)){
-            return redirect()->to('user_account/login');
-        }
         $session = session();
         $to = $this->request->getVar('email');
         $model = new UserModel();
@@ -64,6 +67,10 @@ class Password extends BaseController
     }
 
     public function checkCode(){
+                if (empty(session()->user_email)) {
+            return redirect()->to('/Login');
+        }
+        else{
         $session = session();
         $userCode = $this->request->getVar('code');
         if($userCode==$session->code){
@@ -75,8 +82,12 @@ class Password extends BaseController
             return redirect()->to('/Password/displayCode');
         }
     }
-
+    }
     function saveNewPassword(){
+                if (empty(session()->user_id)) {
+            return redirect()->to('/Login');
+        }
+        else{
         helper(['form']);
         $password = $this->request->getVar('password');
         $confPassword= $this->request->getVar('confPassword');
@@ -109,3 +120,4 @@ class Password extends BaseController
         }
     }
 } 
+}
